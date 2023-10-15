@@ -2,7 +2,6 @@ const JWT = require('jsonwebtoken');
 
 const secret = 'Manish@9876';
 
-// Generating token after SignIn
 function createTokenForUser(user) {
     const payload = {
         _id: user._id,
@@ -13,6 +12,7 @@ function createTokenForUser(user) {
     const token = JWT.sign(payload, secret, { expiresIn: '1000000' });
     return token;
 }
+
 
 function validateToken(token) {
     const payload = JWT.verify(token, secret);

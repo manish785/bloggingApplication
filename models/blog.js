@@ -4,11 +4,11 @@ const blogSchema = new Schema(
   {
     title: {
       type: String,
-      // required: true,
+      required: true,
     },
     body: {
       type: String,
-      // required: true,
+      required: true,
     },
     coverImageURL: {
       type: String,

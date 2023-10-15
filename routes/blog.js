@@ -40,7 +40,6 @@ router.get("/add-blog", (req, res) => {
 
 router.get("/:id", async (req, res) => {
    const token = req.cookies.token;
-
    try {
       validateToken(token);
 
@@ -94,6 +93,5 @@ router.post("/", upload.single("coverImage"), async (req, res) => {
       return;
   }
 });
-
 
 module.exports = router;
