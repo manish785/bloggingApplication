@@ -81,13 +81,14 @@ router.post("/", upload.single("coverImage"), async (req, res) => {
   try{
       validateToken(token);
 
-      const { title, body } = req.body;
+      const { title, body, coverImageURL } = req.body;
       const blog = await Blog.create({
         body,
         title,
         createdBy : req.cookies.user,
+        coverImageURL: `/uploads/${req.file.filename}`,
       });
-    return res.redirect(`/blog/${blog._id}`);
+      return res.redirect(`/blog/${blog._id}`);
   }catch(err){
       console.log('error', err);
       return;
